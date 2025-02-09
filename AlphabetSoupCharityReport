@@ -1,0 +1,23 @@
+Overview
+This analysis is to check and see if the provided factors can be used to see if a funding application has will be successful or not.
+
+Results
+    *Data Preprocessing
+        *Target: IS_SUCCESSFUL
+        *Features: APPLICATION_TYPE, AFFILIATION, CLASSIFICATION, USE_CASE, ORGANIZATION, STATUS, INCOME_AMT, SPECIAL_CONSIDERATIONS, ASK_AMT
+        *Unused: EIN, NAME EIN is an idenfification number, and NAME is the name of the company which doesn't affect analysis.
+    *Compiling, Training, and Evaluating
+        *Nerons, Layers, Activation: For the starting options I used 2 hidden layers with 80 and 30 neurons, and the relu activation funtion. I chose the layers, and neurons by looking at the suggested output and copying it. If I had been building from scratch I probably would have gone with 3 layers of 30ish neurons this is what we used in class and it seemed succesful so it seems like it would be a good place to start. I chose the relu function as again in the examples it seemed like the mose useful.
+        *Success: 
+            0. Original 73.15%
+            1. 72.03%
+            2. 72.12%
+            3. 72.05%
+                *Unfortunately all of my optimizations ended up with a similar to slightly worse 
+        *Attempted Optimization: 
+            1.Add and additional hidden layer at the same neurons as the 2nds
+            2.Try the tanh activation funtion instead of relu
+            3. Increased epochs, add an additional hidden layer and add more neurons to layers 2,3,and 4
+
+Summary
+Overall the model does an ok job of figuring out wether or not a funding application will end in success or failure. There is definetly room for improvement for the model, another thing that could be used to tune the model is to add or drop columns as well as to change where the "other" bin is used to consolidate rare instances in a column. Another way to tune the model would be run the auto tuner to see which combinations of variable would be best instead of guessing which one will be. There are also other models that could be used to classify each of the applications such as decision tree, logistic regression, and SVC. I would probably try each of them since they are all pretty quick to setup and test. I would probably start with SVC since it was what I considered the best option for the last homework.
